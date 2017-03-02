@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "rules": {
+    "no-console": 1,
+    "no-unused-vars": [1, {"vars": "all", "args": "after-used", "varsIgnorePattern": "^_"}],
+    "curly": 2,
+    "eqeqeq": [2, "smart"]
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "globals": {
+    "process": true,
+    "__DEV__": true,
+    "defineBinaryOperator": true,
+    "__dirname": true
+  },
+  "plugins": [
+  ]
+}

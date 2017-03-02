@@ -4,16 +4,44 @@
   "description": "Parser combinators JavaScript implementation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_PATH=./lib node_modules/.bin/ava | node_modules/.bin/tap-nyan"
   },
   "keywords": [
     "parser",
     "combinator",
     "parsec"
   ],
-  "author": "yetone",
+  "author": "yetone <yetoneful@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "operator-overloading": "^0.5.1"
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-operator-overload": "^2.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "eslint": "^3.16.1",
+    "eslint-loader": "^1.6.3",
+    "source-map-loader": "^0.1.6",
+    "tap-nyan": "^1.1.0",
+    "webpack": "1.14"
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.test.js"
+    ],
+    "tap": true,
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
   }
 }
