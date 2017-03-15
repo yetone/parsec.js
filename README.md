@@ -29,11 +29,11 @@ const lbrack = lexeme(string('('))
 const rbrack = lexeme(string(')'))
 const negtive = lexeme(string('-'))
 
-const re_var_name = '[a-zA-Z_][a-zA-Z0-9_]*'
+const reVarName = '[a-zA-Z_][a-zA-Z0-9_]*'
 
-const id = lexeme(regex('\\$' + re_var_name))
-const attr = lexeme(regex(re_var_name))
-const value = id | lexeme(regex(re_var_name))
+const id = lexeme(regex('\\$' + reVarName))
+const attr = lexeme(regex(reVarName))
+const value = id | lexeme(regex(reVarName))
 
 const has = generate(function* has() {
   yield lbrack
