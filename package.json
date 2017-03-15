@@ -1,8 +1,8 @@
 {
   "name": "parsec.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parser combinators JavaScript implementation",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "NODE_PATH=./lib node_modules/.bin/ava | node_modules/.bin/tap-nyan"
   },
@@ -11,6 +11,7 @@
     "combinator",
     "parsec"
   ],
+  "homepage": "https://github.com/yetone/parsec.js",
   "author": "yetone <yetoneful@gmail.com>",
   "license": "MIT",
   "dependencies": {},
