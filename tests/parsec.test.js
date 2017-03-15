@@ -10,9 +10,7 @@ test('string', t => {
   const parser = string('x')
   t.is(parser.parse('x'), 'x')
 
-  const e = t.throws(() => {
-    parser.parse('y')
-  })
+  const e = t.throws(() => parser.parse('y'))
   t.true(e instanceof Error)
 
   const _parser = string('"')
@@ -24,9 +22,7 @@ test('regex', t => {
   t.is(parser.parse('1'), '1')
   t.is(parser.parse('3'), '3')
 
-  t.throws(() => {
-    parser.parse('x')
-  })
+  t.throws(() => parser.parse('x'))
 })
 
 test('then', t => {
@@ -34,8 +30,8 @@ test('then', t => {
 
   t.is(parser.parse('xy'), 'y')
 
-  t.throws(() => {parser.parse('y')})
-  t.throws(() => {parser.parse('z')})
+  t.throws(() => parser.parse('y'))
+  t.throws(() => parser.parse('z'))
 })
 
 test('bind', t => {
@@ -48,7 +44,7 @@ test('bind', t => {
   t.is(parser.parse('xy'), 'y')
   t.is(piped, 'x')
 
-  t.throws(() => {parser.parse('x')})
+  t.throws(() => parser.parse('x'))
 })
 
 test('generate', t => {
@@ -90,17 +86,17 @@ test('times', t => {
   const threeLetters = letter.times(3)
   t.deepEqual(threeLetters.parse('xyz'), ['x', 'y', 'z'])
 
-  t.throws(() =>{threeLetters.parse('xy')})
-  t.throws(() =>{threeLetters.parse('xyzw')})
+  t.throws(() => threeLetters.parse('xy'))
+  t.throws(() => threeLetters.parse('xyzw'))
 })
 
 test('times with then', t => {
   const thenDigit = letter.times(3) >> digit
   t.is(thenDigit.parse('xyz1'), '1')
 
-  t.throws(() =>{thenDigit.parse('xy1')})
-  t.throws(() =>{thenDigit.parse('xyz')})
-  t.throws(() =>{thenDigit.parse('xyzw')})
+  t.throws(() => thenDigit.parse('xy1'))
+  t.throws(() => thenDigit.parse('xyz'))
+  t.throws(() => thenDigit.parse('xyzw'))
 })
 
 test('times with min and max', t => {
@@ -110,8 +106,8 @@ test('times with min and max', t => {
   t.deepEqual(someLetters.parse('xyz'), ['x', 'y', 'z'])
   t.deepEqual(someLetters.parse('xyzw'), ['x', 'y', 'z', 'w'])
 
-  t.throws(() =>{someLetters.parse('x')})
-  t.throws(() =>{someLetters.parse('xyzwv')})
+  t.throws(() => someLetters.parse('x'))
+  t.throws(() => someLetters.parse('xyzwv'))
 })
 
 test('times with min and max and then', t => {
@@ -121,15 +117,15 @@ test('times with min and max and then', t => {
   t.deepEqual(thenDigit.parse('xyz1'), '1')
   t.deepEqual(thenDigit.parse('xyzw1'), '1')
 
-  t.throws(() =>{thenDigit.parse('xy')})
-  t.throws(() =>{thenDigit.parse('xyzw')})
-  t.throws(() =>{thenDigit.parse('xyzwv1')})
-  t.throws(() =>{thenDigit.parse('x1')})
+  t.throws(() => thenDigit.parse('xy'))
+  t.throws(() => thenDigit.parse('xyzw'))
+  t.throws(() => thenDigit.parse('xyzwv1'))
+  t.throws(() => thenDigit.parse('x1'))
 })
 
 test('times zero', t => {
   const zeroLetters = letter.times(0)
   t.deepEqual(zeroLetters.parse(''), [])
 
-  t.throws(() =>{zeroLetters.parse('x')})
+  t.throws(() => zeroLetters.parse('x'))
 })
